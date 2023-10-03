@@ -35,3 +35,8 @@ window.addEventListener("click", (e: any) => {
   window.history.pushState(null, null, e.target.href);
   navigate(e.target.href);
 });
+
+window.addEventListener("popstate", (e: any) => {
+  e.preventDefault();
+  navigate(e.composedPath()[0].location.href);
+})
