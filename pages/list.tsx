@@ -1,17 +1,9 @@
 import React from "react";
 
-export default function List() {
-  const [userList, setUserList] = React.useState<
-    Array<{ id: string; name: string }>
-  >([]);
-
-  React.useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then((res) => res.json())
-      .then((data) => {
-        setUserList(data);
-      });
-  }, []);
+export default async function List() {
+  const userList = await fetch("https://jsonplaceholder.typicode.com/users")
+    .then((res) => res.json())
+    .then((data) => data);
 
   return (
     <div>

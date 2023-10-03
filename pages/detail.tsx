@@ -30,18 +30,10 @@ export interface Company {
   bs: string;
 }
 
-export default function Detail({ userId }: { userId: string | null }) {
-  const [userDetail, setUserDetail] = React.useState<User | null>(null);
-
-  useEffect(() => {
-    if (userId) {
-      fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
+export default async function Detail({ userId }: { userId: string | null }) {
+ const userDetail = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
         .then((res) => res.json())
-        .then((data) => {
-          setUserDetail(data);
-        });
-    }
-  });
+        .then((data) => data);
 
   return (
     <div>
