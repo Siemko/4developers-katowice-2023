@@ -18,7 +18,7 @@ app.get("/:path", async (req, res) => {
   const Component = page.default;
   const html = renderToString(
     <Layout bgColor="white">
-      <Component />
+      <Component {...req.query} />
       <script src="/client.js"></script>
     </Layout>,
   );
