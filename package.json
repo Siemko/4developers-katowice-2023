@@ -8,7 +8,9 @@
     "build:server": "esbuild --platform=node --bundle server.tsx --outfile=dist/server.js",
     "build:client": "esbuild --bundle index.tsx --outfile=dist/client.js",
     "build:tsc": "tsc",
-    "build": "run-p build:*"
+    "build": "run-p build:*",
+    "start": "node dist/server.js",
+    "dev": "nodemon -e ts,tsx --exec \"npm run build && npm run start\" --ignore dist/"
   },
   "keywords": [],
   "author": "",

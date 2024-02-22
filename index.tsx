@@ -37,6 +37,7 @@ window.addEventListener("click", (e: any) => {
 });
 
 window.addEventListener("popstate", (e: any) => {
+  console.log(e);
   e.preventDefault();
   navigate(e.composedPath()[0].location.href);
-})
+});
